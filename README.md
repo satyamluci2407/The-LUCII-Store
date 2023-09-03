@@ -1,13 +1,8 @@
-# Bagelly - The clone of "The Souled Store"
-
-Bagelly fashions-website This was a Solo project Executed in 5 days.
-
-This project was completed within 5 days in unit-3 construct week at Masai School. Bagelly is a ecommerce company based in India that allows customers to shop the chlothes online. The objective of the project was to clone the Souled store app and to implement the knowledge that unit and the units prior to that. 
+# The LUCII Store - The clone of "The Souled Store"
 
 
 Contributor
-
-Akshay Chavan
+Satyam Shandilya
 
 Tech Stack Used : - Languages HTML CSS JavaScript, Node.js, Express, Mongoose
 
