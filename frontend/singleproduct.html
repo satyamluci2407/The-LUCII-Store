@@ -1,0 +1,479 @@
+<!-- single product page dont delete -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/singleproduct.css" />
+    <script src="https://kit.fontawesome.com/5cb8a0be4f.js"></script>
+  </head>
+  <body>
+    <!-- nav bar -->
+    <nav class="navbar-1">
+      <ul>
+        <div class="flex-divs">
+          <li id="women-section-tab">
+            <a id="women-section-tab-a-tag" href="#">WOMEN</a>
+          </li>
+          <li id="men-section-tab">
+            <a id="men-section-tab-a-tag" href="#">MEN</a>
+          </li>
+          <li id="kids-section-tab">
+            <a id="kids-section-tab-a-tag" href="#">KIDS</a>
+          </li>
+        </div>
+        <div class="flex-divs">
+          <li><a href="#">TRACK ORDER</a></li>
+          <li><a href="#">CONTACT US</a></li>
+          <li><a href="#">DOWNLOAD APP</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <nav class="navbar-2">
+      <div id="logo-img-div">
+        <img src="./img/mainlogo.png" alt="error" />
+      </div>
+      <div class="flex-divs">
+        <ul>
+          <li class="drop-down-list-tag">
+            <a href="#">TOPWEAR</a>
+            <ul class="dropdown">
+              <li><a href="#"> Tops New</a></li>
+              <li><a href="#">Shirts</a></li>
+              <li><a href="#">Co-ord Sets</a></li>
+              <li><a href="#">Women's T-Shirts </a></li>
+              <li><a href="#">Boyfriend T-shirts </a></li>
+              <li><a href="#">Sweatshirts & Sweaters New </a></li>
+              <li><a href="#">Hoodies & Jackets </a></li>
+              <li><a href="#">Dresses </a></li>
+            </ul>
+          </li>
+          <li class="drop-down-list-tag">
+            <a href="#">BOTTOMWEAR</a>
+            <ul class="dropdown">
+              <li><a href="#"> Joggers</a></li>
+              <li><a href="#">Freestyle Leggings New</a></li>
+              <li><a href="#">Innerwear New</a></li>
+              <li><a href="#">Shorts </a></li>
+              <li><a href="#">Boyfriend T-shirts </a></li>
+              <li><a href="#">All Day Pants</a></li>
+              <li><a href="#">Pajamas </a></li>
+            </ul>
+          </li>
+          <li class="drop-down-list-tag">
+            <a href="#">COLLECTIONS</a>
+            <ul class="dropdown">
+              <li><a href="#"> New Arrivals</a></li>
+              <li><a href="#">Best Sellers Activewear</a></li>
+              <li><a href="#">Hottest Deals New</a></li>
+            </ul>
+          </li>
+          <li class="drop-down-list-tag">
+            <a href="#">ACCESSORIES</a>
+            <ul class="dropdown">
+              <li><a href="#"> Footwear New</a></li>
+              <li><a href="#">Backpacks</a></li>
+              <li><a href="#">Perfumes</a></li>
+              <li><a href="#">Socks</a></li>
+            </ul>
+          </li>
+          <li class="drop-down-list-tag">
+            <a href="#">SHOP BY THEMES</a>
+          </li>
+          <li><a href="#">MEMBERSHIP</a></li>
+        </ul>
+      </div>
+      <div class="icons-div">
+        <ul>
+          <li><i class="fa-solid fa-magnifying-glass"></i></li>
+          <li id="user-icon-btn">
+            <i class="fa-regular fa-user"></i>
+          </li>
+          <div class="user-drop-wrap">
+            <ul>
+              <li id="closeDiv">❌</li>
+              <li id="login_option"><a href="./index.html">Login</a></li>
+              <li id="logout_option" onclick="logoutfun()">
+                <a href="#">Logout</a>
+              </li>
+              <li id="account_option"><a href="">Account</a></li>
+            </ul>
+          </div>
+          <li><i class="fa-regular fa-heart"></i></li>
+          <li id="cart-icon">
+            <span id="cart-count">0</span
+            ><i class="fa-sharp fa-solid fa-bag-shopping"></i>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modal-msg">Modal content goes here.</p>
+      </div>
+    </div>
+
+    <!-- main body -->
+
+    <div id="page-container">
+      <div id="left-section">
+        <div id="no_result">
+          <div>
+            <img
+              src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-2506.jpg?size=626&ext=jpg"
+              alt="No Result Found"
+            />
+          </div>
+        </div>
+        <div id="preloader">
+          <div>
+            <img src="./img/loading.gif" alt="laoding" />
+          </div>
+        </div>
+      </div>
+
+      <div id="right-section">
+        <div id="product-title">
+          <h2>TSS Originals: Never Mind</h2>
+          <p>Women Oversized Cropped T-Shirts</p>
+        </div>
+
+        <div id="product-price">
+          <h4>$ 599</h4>
+        </div>
+
+        <div id="size-chart">
+          <p>Please select a size. <a href="">SIZE CHART</a></p>
+        </div>
+        <div id="size-chart-buttons">
+          <button id="XXS" onclick="selectsizefun(id)">XXS</button>
+          <button id="XS" onclick="selectsizefun(id)">XS</button>
+          <button id="S" onclick="selectsizefun(id)">S</button>
+          <button id="ML" onclick="selectsizefun(id)">ML</button>
+          <button id="XL" onclick="selectsizefun(id)">XL</button>
+          <button id="XXL" onclick="selectsizefun(id)">XXL</button>
+          <button id="XXXL" onclick="selectsizefun(id)">XXXL</button>
+        </div>
+
+        <div id="product-quantity">
+          <span>Quantity</span> &nbsp;
+          <span>
+            <select name="" id="product-quantity-select">
+              <option value="1" default>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </span>
+        </div>
+
+        <div id="add-to-cart-and-add-to-whishlist-btn">
+          <button onclick="addtoCartfun()">Add To Cart</button
+          ><button>💚 Add To Wishlist</button>
+        </div>
+        <div id="share-and-icons">
+          <span>Share</span>
+          <span>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+          </span>
+        </div>
+        <div id="drop-downs">
+          <div class="click-divs">Product Details</div>
+          <div class="open-click-div">
+            <div>
+              <h4>Material & Care:</h4>
+              <p>100% Cotton</p>
+              <p>Machine Wash</p>
+            </div>
+            <div>
+              <h4>Country of Origin: India (and proud)</h4>
+            </div>
+            <div>
+              <h4>Manufactured & Sold By:</h4>
+              <p>The TRY_LEAF Fashions Pvt. Ltd.</p>
+              <p>224, Tantia Jogani Industrial Premises</p>
+              <p>J.R. Boricha Marg</p>
+              <p>Lower Parel (E)</p>
+              <p>Mumbai - 11</p>
+              <p><a href="#">connect@tryleafasions.com</a></p>
+            </div>
+          </div>
+
+          <div class="click-divs">Product Description</div>
+          <div class="open-click-div">
+            <p>
+              Buy TSS Originals Never Mind Women's Oversized Cropped T-Shirts at
+              The TRY-LEAF Fashions.
+            </p>
+          </div>
+
+          <div class="click-divs">Artist's Details</div>
+          <div class="open-click-div">
+            <p>
+              The TRY-LEAF Fashions was born out of a simple idea - love what
+              you do and follow your soul! Thus, our goal is to give everyone
+              something they'll love, something they can use to express
+              themselves, and, simply put, something to put a smile on their
+              face. So, whether it's superheroes like Superman, TV shows like
+              F.R.I.E.N.D.S, pop culture, music, sports, or quirky, funny stuff
+              you're looking for, we have something for everyone. TSS Originals
+              or The TRY-LEAF Fashions Originals is our exclusive range of
+              funny, funky, trendy and stylish designs. Designed by our kick-ass
+              team of in-house designers, TSS Originals are some cool and quirky
+              designs that help you speak your vibe.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="saradiv-poster">
+      <img src="./img/big bottom banner.webp" alt="" />
+    </div>
+    <div id="banner-of-happy-customer">
+      <div id="home-brand-banner">
+        <h1>HOMEGROWN INDIAN BRAND</h1>
+      </div>
+      <div id="happy-customers">
+        <h1>Over 5.5 Million Happy Customers</h1>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div id="main-footer-div">
+        <div id="top-details-footer-div">
+          <div class="op-details-footer-div-childs">
+            <h3>NEED HELP</h3>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Track Order</a></li>
+              <li><a href="#">Returns & Refunds</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">My Account</a></li>
+            </ul>
+          </div>
+          <div class="op-details-footer-div-childs">
+            <h3>COMPANY</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Stores Near Me</a></li>
+              <li><a href="#">From The Soul</a></li>
+              <li><a href="#">Souled Army</a></li>
+            </ul>
+          </div>
+          <div class="op-details-footer-div-childs">
+            <h3>MORE INFO</h3>
+            <ul>
+              <li><a href="#">T&C</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Sitemap</a></li>
+            </ul>
+          </div>
+          <div class="op-details-footer-div-childs">
+            <ul id="COD-and-return">
+              <li>
+                <img
+                  src="./img//Screenshot 2023-02-23 131711.png"
+                  alt="error"
+                />COD Available
+              </li>
+              <li>
+                <img
+                  src="./img/Screenshot 2023-02-23 131818.png"
+                  alt="error"
+                />30 Days Easy Returns
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="middle-app-down-div">
+          <div><h5>EXPERIENCE THE TRY-LEAF STORE APP</h5></div>
+          <div>
+            <img src="./img/play store.png" alt="error" />
+            <img src="./img/app store.png" alt="error" />
+          </div>
+        </div>
+        <div id="social-handles">
+          <div>Follow Us:</div>
+          <div><img src="./img/facebook.png" alt="error" /></div>
+          <div><img src="./img/insta.png" alt="error" /></div>
+          <div><img src="./img/notify.png" alt="error" /></div>
+          <div><img src="./img/twitter.png" alt="error" /></div>
+        </div>
+        <div id="navigation-link-and-who-div">
+          <div>
+            <div class="to-flex-divs-footer" onclick="openNaviLinkfun()">
+              <h4>NAVIGATION LINKS</h4>
+              <button id="nav-link-plus">+</button>
+            </div>
+            <div id="hidden-divs-footerOne">
+              <h4>Mens</h4>
+              <div>
+                <a href="#">T-ShirtsOversized</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">T-ShirtsOversized</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> Full Sleeve</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">Sleeve</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> T-Shirts</a> | <a href="#"> T-ShirtsFull</a> |
+                <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#"> Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#">Sweatshirts & Sweaters</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a>
+              </div>
+              <h4>Women</h4>
+              <div>
+                <a href="#">T-ShirtsOversized</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">T-ShirtsOversized</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> Full Sleeve</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">Sleeve</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> T-Shirts</a> | <a href="#"> T-ShirtsFull</a> |
+                <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#"> Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#">Sweatshirts & Sweaters</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a>
+              </div>
+              <h4>Kids</h4>
+              <div>
+                <a href="#">T-ShirtsOversized</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">T-ShirtsOversized</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> Full Sleeve</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+              </div>
+              <h4>GET EXTRA DISCOUNTS WITH MEMBERSHIP</h4>
+              <h4>MY MEMBERSHIP</h4>
+            </div>
+          </div>
+          <div>
+            <div class="to-flex-divs-footer" onclick="openWhoLinkfun()">
+              <h4>WHO WE ARE</h4>
+              <button id="who-link-plus">+</button>
+            </div>
+            <div id="hidden-divs-footerTwo">
+              <div>
+                <p>
+                  The Souled Store was born out of the simple idea of loving
+                  what you do - following your soul – and, of course, our love
+                  for puns (sold/ souled). Our philosophy is just as simple-
+                  life is short, don’t spend it doing something you don’t like.
+                  From our products to our website, from our office culture to
+                  the way we interact with our customers, this philosophy’s a
+                  part of everything we do.
+                </p>
+              </div>
+              <div>
+                <p>
+                  In June 2013,TRY-LEAF was founded by four people, with just a
+                  cupboard full of t-shirts (probably as big as yours). Although
+                  we’ve grown from cupboards to warehouses, a lot of things have
+                  remained the same. Our core values are now shared not by just
+                  four people, but by a team that’s now grown to over a hundred
+                  people.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pay-partners">
+          <div class="pay-partners-flex-divs">
+            <div><p>100% Secure Payment:</p></div>
+            <div><img src="./img/payment partners.png" alt="error" /></div>
+          </div>
+          <div class="pay-partners-flex-divs">
+            <div><p>Shipping Partners:</p></div>
+            <div><img src="./img/shipping partners.png" alt="error" /></div>
+          </div>
+        </div>
+        <div style="margin: auto; width: fit-content">
+          <span style="font-size: 0.8rem; color: gray">
+            &#9400;The TRY-LEAF Fashions 2023-24</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+<script src="./scripts/navandfooter.js"></script>
+<script src="./scripts/singleproduct.js"></script>

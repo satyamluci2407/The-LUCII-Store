@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+<!-- main login and signup page -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/5cb8a0be4f.js"></script>
+
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+  </head>
+  <body>
+    <!-- nav bar -->
+    <nav class="navbar-1">
+      <ul>
+        <div class="flex-divs">
+          <li id="women-section-tab" onclick="womenfun()">
+            <a id="women-section-tab-a-tag" href="#">WOMEN</a>
+          </li>
+          <li id="men-section-tab" onclick="mensfun()">
+            <a id="men-section-tab-a-tag" href="#">MEN</a>
+          </li>
+          <li id="kids-section-tab">
+            <a id="kids-section-tab-a-tag" href="#">KIDS</a>
+          </li>
+        </div>
+        <div class="flex-divs">
+          <li><a href="#">TRACK ORDER</a></li>
+          <li><a href="#">CONTACT US</a></li>
+          <li><a href="#">DOWNLOAD APP</a></li>
+        </div>
+      </ul>
+    </nav>
+
+    <nav class="navbar-2">
+      <div id="logo-img-div">
+        <a href = "index.html"><img src="./img/mainlogo.png" alt="error" /></a>
+      </div>
+      <div class="flex-divs">
+        <ul>
+          <li class="drop-down-list-tag">
+            <a href="#">TOPWEAR</a>
+            <ul class="dropdown">
+              <li><a href="#"> Tops New</a></li>
+              <li><a href="#">Shirts</a></li>
+              <li><a href="#">Co-ord Sets</a></li>
+              <li><a href="#">Women's T-Shirts </a></li>
+              <li><a href="#">Boyfriend T-shirts </a></li>
+              <li><a href="#">Sweatshirts & Sweaters New </a></li>
+              <li><a href="#">Hoodies & Jackets </a></li>
+              <li><a href="#">Dresses </a></li>
+            </ul>
+          </li>
+          <li class="drop-down-list-tag">
+            <a href="#">BOTTOMWEAR</a>
+            <ul class="dropdown">
+              <li><a href="#"> Joggers</a></li>
+              <li><a href="#">Freestyle Leggings New</a></li>
+              <li><a href="#">Innerwear New</a></li>
+              <li><a href="#">Shorts </a></li>
+              <li><a href="#">Boyfriend T-shirts </a></li>
+              <li><a href="#">All Day Pants</a></li>
+              <li><a href="#">Pajamas </a></li>
+            </ul>
+          </li>
+          <li class="drop-down-list-tag">
+            <a href="#">COLLECTIONS</a>
+            <ul class="dropdown">
+              <li><a href="#"> New Arrivals</a></li>
+              <li><a href="#">Best Sellers Activewear</a></li>
+              <li><a href="#">Hottest Deals New</a></li>
+            </ul>
+          </li>
+          <li class="drop-down-list-tag">
+            <a href="#">ACCESSORIES</a>
+            <ul class="dropdown">
+              <li><a href="#"> Footwear New</a></li>
+              <li><a href="#">Backpacks</a></li>
+              <li><a href="#">Perfumes</a></li>
+              <li><a href="#">Socks</a></li>
+            </ul>
+          </li>
+          <li class="drop-down-list-tag">
+            <a href="#">SHOP BY THEMES</a>
+          </li>
+          <li><a href="#">MEMBERSHIP</a></li>
+        </ul>
+      </div>
+      <div class="icons-div">
+        <ul>
+          <li><i class="fa-solid fa-magnifying-glass"></i></li>
+          <li id="user-icon-btn">
+            <i class="fa-regular fa-user"></i>
+          </li>
+          <div class="user-drop-wrap">
+            <ul>
+              <li id="closeDiv">❌</li>
+              <li id="login_option"><a href="./index.html">Login</a></li>
+              <li id="logout_option" onclick="logoutfun()">
+                <a href="#">Logout</a>
+              </li>
+              <li id="account_option"><a href="#">Account</a></li>
+            </ul>
+          </div>
+          <li><i class="fa-regular fa-heart"></i></li>
+          <li id="cart-icon">
+            <span id="cart-count">0</span
+            ><i class="fa-sharp fa-solid fa-bag-shopping"></i>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <!-- modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modal-msg">Modal content goes here.</p>
+      </div>
+    </div>
+
+    <div id="page-container">
+      <div id="login-container">
+        <div id="main-login-content-container">
+          <div id="main-login-content-container-child1">
+            <h3>Login with The LUCII Store</h3>
+          </div>
+          <div id="main-login-content-container-child2">
+            <div class="flex-div-for-login-signup">
+              <button
+                onclick="logintoggle()"
+                id="login-toggle-btn"
+                style="background-color: #117a7a; color: white; cursor: pointer"
+              >
+                Login
+              </button>
+              <button
+                onclick="registertoggle()"
+                id="register-toggle-btn"
+                style="cursor: pointer"
+              >
+                Register
+              </button>
+            </div>
+            <div id="login-content">
+              <div id="login-content-inner-div">
+                <!-- login -->
+                <div id="login-box">
+                  <div class="flex-divs">
+                    <a href="#">
+                      <span><i class="fa-brands fa-square-facebook"></i> </span>
+                      <span>Facebook</span>
+                    </a>
+                    <a href="http://localhost:4000/auth/google">
+                      <span><i class="fa-brands fa-google"></i></span>
+                      <span>Google</span>
+                    </a>
+                  </div>
+                  <div>-OR-</div>
+                  <div>
+                    <form onsubmit="submitloginfun(event)">
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter Email *"
+                        required
+                      />
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter Password *"
+                        required
+                      />
+                      <input type="submit" value="Proceed" id="Proceed-btn" />
+                    </form>
+                  </div>
+                  <div>
+                    <span>New User ? </span
+                    ><span onclick="registertoggle()"
+                      ><a href="#">Create Account</a></span
+                    >
+                  </div>
+                </div>
+
+                <!-- register -->
+                <div id="register-box">
+                  <div class="flex-divs">
+                    <a href="#">
+                      <span><i class="fa-brands fa-square-facebook"></i> </span>
+                      <span>Facebook</span>
+                    </a>
+                    <a href="http://localhost:4000/auth/google/callback">
+                      <span><i class="fa-brands fa-google"></i></span>
+                      <span>Google</span>
+                    </a>
+                  </div>
+                  <div>-OR-</div>
+                  <form onsubmit="submitregisterfun(event)">
+                    <div style="display: flex">
+                      <input
+                        style="width: 45%"
+                        type="text"
+                        name="first_name"
+                        required
+                        placeholder="First Name *"
+                      />
+                      <div style="width: 10%"></div>
+                      <input
+                        style="width: 45%"
+                        type="text"
+                        name="last_name"
+                        required
+                        placeholder="Last Name *"
+                      />
+                    </div>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="Email *"
+                    />
+                    <input
+                      type="password"
+                      name="password"
+                      required
+                      placeholder="Password *"
+                    />
+                    <input
+                      type="password"
+                      name="confirm_password"
+                      required
+                      placeholder="Confirm Password *"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      placeholder="Phone Number *"
+                    />
+                    <div
+                      style="
+                        display: flex;
+                        justify-content: space-between;
+                        box-sizing: border-box;
+                      "
+                    >
+                      <label for="Gender">Gender</label>
+                      &nbsp;
+                      <label for="male">Male</label>
+                      <input type="radio" name="gender" value="male" checked />
+                      <label for="female">Female</label>
+                      <input type="radio" name="gender" value="female" />
+                      <label for="other">Other</label>
+                      <input type="radio" name="gender" value="other" />
+                    </div>
+                    <input type="submit" id="form-register-btn" />
+                    &nbsp;
+                    <div>
+                      <span>Already a Customer ? </span
+                      ><span onclick="registertoggle()"
+                        ><a href="">Login</a></span
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="banner-of-happy-customer">
+      <div id="home-brand-banner">
+        <h1>HOMEGROWN INDIAN BRAND</h1>
+      </div>
+      <div id="happy-customers">
+        <h1>Over 5.5 Million Happy Customers</h1>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div id="main-footer-div">
+        <div id="top-details-footer-div">
+          <div class="op-details-footer-div-childs">
+            <h3>NEED HELP</h3>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Track Order</a></li>
+              <li><a href="#">Returns & Refunds</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">My Account</a></li>
+            </ul>
+          </div>
+          <div class="op-details-footer-div-childs">
+            <h3>COMPANY</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Stores Near Me</a></li>
+              <li><a href="#">From The Soul</a></li>
+              <li><a href="#">Souled Army</a></li>
+            </ul>
+          </div>
+          <div class="op-details-footer-div-childs">
+            <h3>MORE INFO</h3>
+            <ul>
+              <li><a href="#">T&C</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Sitemap</a></li>
+            </ul>
+          </div>
+          <div class="op-details-footer-div-childs">
+            <ul id="COD-and-return">
+              <li>
+                <img src="./img//Screenshot 2023-02-23 131711.png" alt="" />COD
+                Available
+              </li>
+              <li>
+                <img src="./img/Screenshot 2023-02-23 131818.png" alt="" />30
+                Days Easy Returns
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="middle-app-down-div">
+          <div><h5>EXPERIENCE THE LUCII STORE APP</h5></div>
+          <div>
+            <img src="./img/play store.png" alt="" />
+            <img src="./img/app store.png" alt="" />
+          </div>
+        </div>
+        <div id="social-handles">
+          <div>Follow Us:</div>
+          <div><img src="./img/facebook.png" alt="" /></div>
+          <div><a href = "https://www.instagram.com/satyamshan24/"><img src="./img/insta.png" alt="" /></a></div>
+          <div><img src="./img/notify.png" alt="" /></div>
+          <div><a href = "https://twitter.com/ShandilyaSatyam"><img src="./img/twitter.png" alt="" /></a></div>
+        </div>
+        <div id="navigation-link-and-who-div">
+          <div>
+            <div class="to-flex-divs-footer" onclick="openNaviLinkfun()">
+              <h4>NAVIGATION LINKS</h4>
+              <button id="nav-link-plus">+</button>
+            </div>
+            <div id="hidden-divs-footerOne">
+              <h4>Mens</h4>
+              <div>
+                <a href="#">T-ShirtsOversized</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">T-ShirtsOversized</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> Full Sleeve</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">Sleeve</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> T-Shirts</a> | <a href="#"> T-ShirtsFull</a> |
+                <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#"> Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#">Sweatshirts & Sweaters</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a>
+              </div>
+              <h4>Women</h4>
+              <div>
+                <a href="#">T-ShirtsOversized</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">T-ShirtsOversized</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> Full Sleeve</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">Sleeve</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> T-Shirts</a> | <a href="#"> T-ShirtsFull</a> |
+                <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#"> Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <a href="#">Sweatshirts & Sweaters</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a>
+              </div>
+              <h4>Kids</h4>
+              <div>
+                <a href="#">T-ShirtsOversized</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#">T-ShirtsOversized</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+                <a href="#"> Full Sleeve</a> |
+                <a href="#"> PolosHoodies & Jackets</a> |
+                <a href="#"> T-ShirtsFull</a> | <a href="#"> T-Shirts</a> |
+                <a href="#"> PolosHoodies & Jackets</a>
+                <br />
+              </div>
+              <h4>GET EXTRA DISCOUNTS WITH MEMBERSHIP</h4>
+              <h4>MY MEMBERSHIP</h4>
+            </div>
+          </div>
+          <div>
+            <div class="to-flex-divs-footer" onclick="openWhoLinkfun()">
+              <h4>WHO WE ARE</h4>
+              <button id="who-link-plus">+</button>
+            </div>
+            <div id="hidden-divs-footerTwo">
+              <div>
+                <p>
+                  The Souled Store was born out of the simple idea of loving
+                  what you do - following your soul – and, of course, our love
+                  for puns (sold/ souled). Our philosophy is just as simple-
+                  life is short, don’t spend it doing something you don’t like.
+                  From our products to our website, from our office culture to
+                  the way we interact with our customers, this philosophy’s a
+                  part of everything we do.
+                </p>
+              </div>
+              <div>
+                <p>
+                  In June 2013, The Lucii Store was founded by four people, with just a
+                  cupboard full of t-shirts (probably as big as yours). Although
+                  we’ve grown from cupboards to warehouses, a lot of things have
+                  remained the same. Our core values are now shared not by just
+                  four people, but by a team that’s now grown to over a hundred
+                  people.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pay-partners">
+          <div class="pay-partners-flex-divs">
+            <div><p>100% Secure Payment:</p></div>
+            <div><img src="./img/payment partners.png" alt="" /></div>
+          </div>
+          <div class="pay-partners-flex-divs">
+            <div><p>Shipping Partners:</p></div>
+            <div><img src="./img/shipping partners.png" alt="" /></div>
+          </div>
+        </div>
+        <div style="margin: auto; width: fit-content">
+          <span style="font-size: 0.8rem; color: gray">
+            &#9400;The LUCII Store 2023-24 by SATYAM SHANDILYA</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+<script src="./scripts/navandfooter.js"></script>
+<script src="./scripts/index.js"></script>
