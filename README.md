@@ -1,73 +1,86 @@
-# The LUCII Store - The clone of "The Souled Store"
+# 🛍️ The LUCII Store
 
+An end-to-end full-stack E-Commerce web application inspired by modern lifestyle retail platforms[cite: 1, 4]. Built using the **MERN** stack (MongoDB, Express.js, Vanilla JS / HTML5 / CSS3, Node.js) with integrated **JWT Authentication**, **Google OAuth 2.0**, and complete **Cart/Product Management**[cite: 1, 4].
 
-Contributor
-Satyam Shandilya
+---
 
-Tech Stack Used : - Languages HTML CSS JavaScript, Node.js, Express, Mongoose
+## 🚀 Live Demo
 
-Packages : - Jsonwebtoken, Bcrypt, Dotenv, Cors
+- **Frontend Application:** [https://the-lucii-store-frontend.onrender.com](https://the-lucii-store-frontend.onrender.com)  
+- **Backend API:** [https://the-lucii-store.onrender.com](https://the-lucii-store.onrender.com)
 
-### This documentation provides an overview of the routes available in the project. It includes the user routes, product routes, and cart routes.
+---
 
-## User Routes
-GET /users
-This route is used to fetch all the users.
+## ✨ Features
 
-POST /register
-This route is used to register a new user.
+### 👤 User & Authentication
+- **Traditional Auth:** User registration and login using encrypted passwords with `bcrypt`[cite: 4].
+- **Google OAuth 2.0:** One-click Google sign-in via Passport.js and Google Cloud API[cite: 1, 4].
+- **Session & Security:** Secure JWT (JSON Web Token) generation with client-side session persistence[cite: 1, 4].
+- **Token Validation:** Real-time token authentication guard to verify session states across navigation[cite: 1, 4].
 
-POST /login
-This route is used for user authentication and login.
+### 🛒 Product Catalog & Shopping Cart
+- **Product Exploration:** Browse products categorized across Men, Women, Accessories, etc[cite: 1, 4].
+- **Search & Filters:** Dynamic product listing with price/category sorting and detailed item views[cite: 1, 4].
+- **Cart Operations:** Add-to-cart, remove items, quantity adjustments, and dynamic subtotal calculations[cite: 1, 4].
+- **Badge Counter:** Real-time cart item count sync across the navbar[cite: 1, 4].
 
-PATCH /update/:id
-This route is used to update user information based on the provided id.
+### 🛠️ Admin Dashboard
+- **Product Management:** Add new inventory, update pricing/specifications, and remove products[cite: 1, 4].
+- **Metrics View:** High-level summary of store listings and user activity[cite: 1, 4].
 
-DELETE /delete/:id
-This route is used to delete a user based on the provided id.
+---
 
-GET /validatetoken
-This route is used to validate a user's token.
+## 🛠️ Tech Stack
 
-GET /auth/google
-This route is used for authentication using Google OAuth.
+### Frontend
+- **HTML5 & CSS3** (Responsive design, CSS Grid, Flexbox)[cite: 1, 4]
+- **Vanilla JavaScript (ES6+)**[cite: 1, 4]
+- **FontAwesome & Custom Icons**[cite: 1, 4]
 
-## Product Routes
-GET /products
-This route is used to fetch all products.
+### Backend
+- **Node.js** & **Express.js**[cite: 1, 4]
+- **MongoDB & Mongoose ODM**[cite: 1, 4]
+- **Passport.js & Passport-Google-OAuth20**[cite: 1, 4]
+- **JSON Web Tokens (`jsonwebtoken`)**[cite: 1, 4]
+- **Bcrypt** for secure hashing[cite: 4]
+- **CORS** for cross-origin resource sharing[cite: 4]
 
-GET /products/singleproduct/:id
-This route is used to fetch a specific product based on the provided id.
+---
 
-GET /products/women
-This route is used to fetch products specifically for women.
+## 📁 Repository Structure
 
-GET /products/men
-This route is used to fetch products specifically for men.
-
-GET /products/kids
-This route is used to fetch products specifically for kids.
-
-POST /products/add
-This route is used to add a new product.
-
-PATCH /products/update/:id
-This route is used to update a product based on the provided id.
-
-DELETE /products/delete/:id
-This route is used to delete a product based on the provided id.
-
-## Cart Routes
-GET /user/getcart
-This route is used to fetch the cart items for a specific user.
-
-POST /user/addtocart
-This route is used to add an item to the user's cart.
-
-DELETE /user/remove/:id
-This route is used to remove an item from the user's cart based on the provided id.
-
-
-
-
-
+```text
+The-LUCII-Store/
+├── backend/
+│   ├── config/
+│   │   └── db.js                        # MongoDB connection setup
+│   ├── middlewares/
+│   │   └── authenticator.middleware.js  # JWT validation middleware
+│   ├── models/
+│   │   ├── cart.model.js                # Cart schema
+│   │   ├── products.model.js            # Product schema
+│   │   └── users.model.js               # User schema
+│   ├── oauths/
+│   │   └── google.oauth.js              # Google OAuth 2.0 Passport strategy
+│   ├── routes/
+│   │   ├── carts.routes.js              # Cart endpoints
+│   │   ├── products.routes.js           # Product endpoints
+│   │   └── user.routes.js               # Auth endpoints (register, login)
+│   ├── index.js                         # Server entry point & OAuth callback
+│   ├── package.json
+│   └── .env.example
+│
+└── frontend/
+    ├── admin/
+    │   └── landing.html                 # Admin dashboard
+    ├── scripts/
+    │   ├── index.js                     # Login/Register script
+    │   ├── main.js                      # Home & banner logic
+    │   ├── navandfooter.js              # Navbar, footer & auth state listener
+    │   └── cart.js                      # Cart operations
+    ├── index.html                       # Landing / Login & Signup page
+    ├── main.html                        # Product home
+    ├── allproducts.html                 # Catalog listing
+    ├── cart.html                        # User checkout & cart
+    └── img/                             # Assets and banners
