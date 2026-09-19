@@ -6,11 +6,11 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 // new code for google auth
-const passport = require("../oauths/google.oauth");
+const { passport } = require("../oauths/google.oauth");
 const { v4: uuidv4 } = require("uuid");
 
 // Initialize Passport.js
-UserRouter.use(passport.initialize());
+// UserRouter.use(passport.initialize());
 UserRouter.use(passport.session());
 
 UserRouter.get("/users", async (req, res) => {
