@@ -6,14 +6,11 @@ users-routes:
 3.Update--patch
 4.Delete--delete
 
-
 products-routes:
 1.Show--get
 2.Add -- post
 3.Update--patch
 4.Delete--delete
-
-
 
 FRONTEND 
 Login page:
