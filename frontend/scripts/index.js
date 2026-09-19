@@ -1,7 +1,4 @@
-// Ensure baseURL is available
-const baseURL = "https://the-lucii-store.onrender.com";
-
-// login and register elements
+// login and register
 const login_toggle_btn = document.getElementById("login-toggle-btn");
 const register_toggle_btn = document.getElementById("register-toggle-btn");
 const login_container = document.getElementById("login-container");
@@ -15,22 +12,19 @@ let register_btn = document.getElementById("form-register-btn");
 
 const login_by_google = document.getElementById("login-by-google");
 
-// Attach Google Login Link dynamically
-if (login_by_google) {
-  login_by_google.setAttribute("href", `${baseURL}/auth/google`);
-}
 
-// onload verification
+
+// onload;
 async function onload() {
   let res = await fetchtovalidateToken();
   if (!res) {
-    if (logout_option) logout_option.style.display = "none";
-    if (account_option) account_option.style.display = "none";
-    if (login_option) login_option.style.display = "block";
+    logout_option.style.display = "none";
+    account_option.style.display = "none";
+    login_option.style.display = "block";
   } else {
-    if (logout_option) logout_option.style.display = "block";
-    if (account_option) account_option.style.display = "block";
-    if (login_option) login_option.style.display = "none";
+    logout_option.style.display = "block";
+    account_option.style.display = "block";
+    login_option.style.display = "none";
     window.location.assign("./main.html");
   }
 }
@@ -38,32 +32,26 @@ onload();
 
 // login and register toggle ------------------------
 const logintoggle = () => {
-  if (login_box) login_box.style.display = "block";
-  if (register_box) register_box.style.display = "none";
-  if (login_toggle_btn) {
-    login_toggle_btn.style.backgroundColor = "#117a7a";
-    login_toggle_btn.style.color = "white";
-  }
-  if (register_toggle_btn) {
-    register_toggle_btn.style.backgroundColor = "rgb(255, 255, 255)";
-    register_toggle_btn.style.color = "black";
-  }
+  login_box.style.display = "block";
+  register_box.style.display = "none";
+  login_toggle_btn.style.backgroundColor = "#117a7a";
+  login_toggle_btn.style.color = "white";
+  register_toggle_btn.style.backgroundColor = "rgb(255, 255, 255)";
+  register_toggle_btn.style.color = "black";
 };
-
 const registertoggle = () => {
-  if (login_box) login_box.style.display = "none";
-  if (register_box) register_box.style.display = "block";
-  if (register_toggle_btn) {
-    register_toggle_btn.style.backgroundColor = "#117a7a";
-    register_toggle_btn.style.color = "white";
-  }
-  if (login_toggle_btn) {
-    login_toggle_btn.style.backgroundColor = "rgb(255, 255, 255)";
-    login_toggle_btn.style.color = "black";
-  }
+  login_box.style.display = "none";
+  register_box.style.display = "block";
+
+  register_toggle_btn.style.backgroundColor = "#117a7a";
+  register_toggle_btn.style.color = "white";
+  login_toggle_btn.style.backgroundColor = "rgb(255, 255, 255)";
+  login_toggle_btn.style.color = "black";
 };
 
-// submit login form
+// ------------------------
+
+// to submit the login form and register form
 const submitloginfun = async (event) => {
   event.preventDefault();
 
@@ -71,40 +59,32 @@ const submitloginfun = async (event) => {
     const form = new FormData(event.target);
     const data = Object.fromEntries(form);
 
-    if (proceed_btn) proceed_btn.value = "Loading...";
-
-    // Route changed to /users/login
-    const promise = await fetch(`${baseURL}/users/login`, {
+    proceed_btn.value = "Loading...";
+    const promise = await fetch(`${baseURL}/login`, {
       headers: {
-        "Content-Type": "application/json",
+        "Content-type": "application/json",
       },
       method: "POST",
       body: JSON.stringify(data),
     });
-
     const res = await promise.json();
 
-    // Checked promise.ok (HTTP status 200-299)
-    if (promise.ok) {
+    if (res.ok) {
       sessionStorage.setItem("accesstoken", res.token);
-      if (res.userId) sessionStorage.setItem("userId", res.userId);
-      if (res.name) sessionStorage.setItem("userName", res.name);
-
-      modalfun(res.msg || "Login Successful");
+      modalfun(res.msg);
       setTimeout(() => {
         window.location.assign("./main.html");
-      }, 1500);
+      }, 2000);
     } else {
-      modalfun(res.msg || "Invalid Credentials");
+      modalfun(res.msg);
     }
+    proceed_btn.value = "Proceed";
   } catch (error) {
-    modalfun("Oops.. ☹️ Server Error");
-  } finally {
-    if (proceed_btn) proceed_btn.value = "Proceed";
+    modalfun("Oopps.. ☹️ Server Error");
+    proceed_btn.value = "Proceed";
   }
 };
 
-// submit register form
 const submitregisterfun = async (event) => {
   event.preventDefault();
 
@@ -112,42 +92,27 @@ const submitregisterfun = async (event) => {
     const form = new FormData(event.target);
     const data = Object.fromEntries(form);
 
-    if (data.password === data.confirm_password) {
-      if (register_btn) register_btn.value = "Loading...";
-
-      // Concatenate first and last name if present
-      if (data.first_name && data.last_name) {
-        data.name = `${data.first_name} ${data.last_name}`;
-      }
-
-      // Remove confirm_password before sending to MongoDB
-      delete data.confirm_password;
-
-      // Route changed to /users/register
-      const promise = await fetch(`${baseURL}/users/register`, {
+    if (data.password == data.confirm_password) {
+      register_btn.value = "Loading...";
+      const promise = await fetch(`${baseURL}/register`, {
         headers: {
-          "Content-Type": "application/json",
+          "Content-type": "application/json",
         },
         method: "POST",
         body: JSON.stringify(data),
       });
 
       const res = await promise.json();
-
-      if (promise.ok) {
-        modalfun(res.msg || "Registered Successfully");
-        setTimeout(() => {
-          logintoggle();
-        }, 1500);
-      } else {
-        modalfun(res.msg || "Registration failed");
-      }
+      modalfun(res.msg);
+      setTimeout(() => {
+        logintoggle();
+      }, 1000);
     } else {
       modalfun("Passwords do not match");
     }
+    register_btn.value = "Register";
   } catch (error) {
-    modalfun("Oops.. ☹️ Server Error");
-  } finally {
-    if (register_btn) register_btn.value = "Register";
+    modalfun("Oopps.. ☹️ Server Error");
+    register_btn.value = "Register";
   }
 };
