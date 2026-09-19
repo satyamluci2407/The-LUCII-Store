@@ -3,7 +3,6 @@ const { connection } = require("./config/db");
 const { UserRouter } = require("./routes/user.routes");
 const { CartRouter } = require("./routes/carts.routes");
 const { ProductRouter } = require("./routes/products.routes");
-const cors = require("cors");
 const session = require("express-session");
 
 const app = express();
