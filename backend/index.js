@@ -3,6 +3,7 @@ const { connection } = require("./config/db");
 const { UserRouter } = require("./routes/user.routes");
 const { CartRouter } = require("./routes/carts.routes");
 const { ProductRouter } = require("./routes/products.routes");
+const passport = require("passport");
 const session = require("express-session");
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
+app.use(passport.initialize());
 
 app.get("/", (req, res) => {
   res.send("WELCOME TO THE LUCII STORE APP");

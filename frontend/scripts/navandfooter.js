@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:4000";
+const baseURL = "https://the-lucii-store-backend.onrender.com";
 
 const women_section_tab = document.getElementById("women-section-tab");
 const women_section_tab_a = document.getElementById("women-section-tab-a-tag");
